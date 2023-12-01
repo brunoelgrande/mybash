@@ -767,3 +767,5 @@ alias gwip='git add -A; git rm $(git ls-files --deleted) 2> /dev/null; git commi
 # Autres Bruno
 ################################################################################ 
 meteo='curl fr.wttr.in'
+
+eval "$(starship init bash)"
