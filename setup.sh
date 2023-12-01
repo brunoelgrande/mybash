@@ -40,7 +40,7 @@ checkEnv() {
     bash ${GITPATH}/usenala
 
     ## Check Package Handeler
-    PACKAGEMANAGER='apt yum dnf nala pacman zypper'
+    PACKAGEMANAGER='nala apt yum dnf pacman zypper'
     for pgm in ${PACKAGEMANAGER}; do
         if command_exists ${pgm}; then
             PACKAGER=${pgm}
@@ -52,8 +52,6 @@ checkEnv() {
         echo -e "${RED}Can't find a supported package manager"
         exit 1
     fi
-
-
 
 
     ## Check SuperUser Group
