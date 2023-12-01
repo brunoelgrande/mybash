@@ -34,7 +34,7 @@ checkEnv() {
     echo "deb [arch=amd64,arm64,armhf] http://deb.volian.org/volian/ scar main" | sudo tee /etc/apt/sources.list.d/volian-archive-scar-unstable.list
     wget -qO - https://deb.volian.org/volian/scar.key | sudo tee /etc/apt/trusted.gpg.d/volian-archive-scar-unstable.gpg > /dev/null
     apt install nala -y
-    bahs ${GITPATH}/usenala
+    bash ${GITPATH}/usenala
 
     ## Check Package Handeler
     PACKAGEMANAGER='apt yum dnf nala pacman zypper'
@@ -115,6 +115,7 @@ linkConfig() {
 
     echo -e "${YELLOW}Linking new bash config file...${RC}"
     ## Make symbolic link.
+    mkdir -p ${USER_HOME}/.config
     ln -svf ${GITPATH}/.bashrc ${USER_HOME}/.bashrc
     ln -svf ${GITPATH}/starship.toml ${USER_HOME}/.config/starship.toml
 }
