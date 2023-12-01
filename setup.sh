@@ -9,7 +9,13 @@ command_exists () {
     command -v $1 >/dev/null 2>&1;
 }
 
+
 checkEnv() {
+
+    # Update packages list and update system
+    apt update
+    apt upgrade -y
+    
     ## Check for requirements.
     REQUIREMENTS='curl groups sudo'
     if ! command_exists ${REQUIREMENTS}; then
@@ -17,8 +23,21 @@ checkEnv() {
         exit 1
     fi
 
+    ## Check if the current directory is writable.
+    GITPATH="$(dirname "$(realpath "$0")")"
+    if [[ ! -w ${GITPATH} ]]; then
+        echo -e "${RED}Can't write to ${GITPATH}${RC}"
+        exit 1
+    fi
+
+    ## Install nala and use it
+    echo "deb [arch=amd64,arm64,armhf] http://deb.volian.org/volian/ scar main" | sudo tee /etc/apt/sources.list.d/volian-archive-scar-unstable.list
+    wget -qO - https://deb.volian.org/volian/scar.key | sudo tee /etc/apt/trusted.gpg.d/volian-archive-scar-unstable.gpg > /dev/null
+    apt install nala -y
+    bahs ${GITPATH}/usenala
+
     ## Check Package Handeler
-    PACKAGEMANAGER='apt yum dnf pacman zypper'
+    PACKAGEMANAGER='apt yum dnf nala pacman zypper'
     for pgm in ${PACKAGEMANAGER}; do
         if command_exists ${pgm}; then
             PACKAGER=${pgm}
@@ -32,12 +51,7 @@ checkEnv() {
     fi
 
 
-    ## Check if the current directory is writable.
-    GITPATH="$(dirname "$(realpath "$0")")"
-    if [[ ! -w ${GITPATH} ]]; then
-        echo -e "${RED}Can't write to ${GITPATH}${RC}"
-        exit 1
-    fi
+
 
     ## Check SuperUser Group
     SUPERUSERGROUP='wheel sudo root'
