@@ -12,9 +12,7 @@ command_exists () {
 
 checkEnv() {
 
-    # Update packages list and update system
-    apt update
-    apt upgrade -y
+
     
     ## Check for requirements.
     REQUIREMENTS='curl groups sudo'
@@ -30,9 +28,14 @@ checkEnv() {
         exit 1
     fi
 
-    ## Install nala and use it
+    ## Add nala dependency
     echo "deb [arch=amd64,arm64,armhf] http://deb.volian.org/volian/ scar main" | sudo tee /etc/apt/sources.list.d/volian-archive-scar-unstable.list
     wget -qO - https://deb.volian.org/volian/scar.key | sudo tee /etc/apt/trusted.gpg.d/volian-archive-scar-unstable.gpg > /dev/null
+
+    ### Update packages list and update system
+    apt update
+    apt upgrade -y
+    ### Install nala and use it
     apt install nala -y
     bash ${GITPATH}/usenala
 
