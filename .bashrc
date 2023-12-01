@@ -53,7 +53,7 @@ export EDITOR=nano
 export VISUAL=nano
 alias pico='edit'
 alias spico='sedit'
-alias nano='edit'
+# alias nano='edit'
 alias snano='sedit'
 alias cat='batcat'
 
@@ -196,7 +196,7 @@ edit ()
 {
 	if [ "$(type -t jpico)" = "file" ]; then
 		# Use JOE text editor http://joe-editor.sourceforge.net/
-		#jpico -nonotice -linums -nobackups "$@"
+		# sudo jpico -nonotice -linums -nobackups "$@"
 		nano -c "$@"
 	elif [ "$(type -t nano)" = "file" ]; then
 		nano -c "$@"
@@ -460,7 +460,7 @@ alias whatismyip="whatsmyip"
 function whatsmyip ()
 {
 	# Dumps a list of all IP addresses for every device
-	# /sbin/ifconfig |grep -B1 "inet addr" |awk '{ if ( $1 == "inet" ) { print $2 } else if ( $2 == "Link" ) { printf "%s:" ,$1 } }' |awk -F: '{ print $1 ": " $3 }';
+	/sbin/ifconfig |grep -B1 "inet addr" |awk '{ if ( $1 == "inet" ) { print $2 } else if ( $2 == "Link" ) { printf "%s:" ,$1 } }' |awk -F: '{ print $1 ": " $3 }';
 	
 	### Old commands
 	# Internal IP Lookup
