@@ -87,7 +87,7 @@ installDepend() {
         fi
     	yay --noconfirm -S ${DEPENDENCIES}
     else 
-    	sudo ${PACKAGER} install -yq ${DEPENDENCIES}
+    	sudo ${PACKAGER} install -y ${DEPENDENCIES}
     fi
 }
 
