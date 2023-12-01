@@ -593,7 +593,7 @@ fi
 ################################################################################ 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-if [ d- "/home/bruno/anaconda3/bin/conda"]; then
+if [ -d "/home/bruno/anaconda3/bin/conda"]; then
 	__conda_setup="$('/home/bruno/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
 	if [ $? -eq 0 ]; then
 	    eval "$__conda_setup"
