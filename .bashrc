@@ -53,8 +53,8 @@ export EDITOR=nano
 export VISUAL=nano
 alias pico='edit'
 alias spico='sedit'
-alias nano='edit'
-alias snano='sedit'
+# alias nano='edit'
+# alias snano='sedit'
 alias cat='batcat'
 
 # To have colors for ls and all grep commands such as grep, egrep and zgrep
@@ -590,6 +590,8 @@ fi
 ################################################################################ 
 # Autres Bruno
 ################################################################################ 
+source "$HOME/mybash/gitcommands"
+
 alias meteo='curl fr.wttr.in'
 
 eval "$(starship init bash)"
