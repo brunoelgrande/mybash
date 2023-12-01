@@ -590,6 +590,10 @@ fi
 
 ################################################################################ 
 # Conda
+# si requis, mise à jour :
+## $ cd YOUR_PATH_ANACONDA/bin
+## $ ./conda init bash
+#
 ################################################################################ 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
