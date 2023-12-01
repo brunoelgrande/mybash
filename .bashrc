@@ -53,8 +53,8 @@ export EDITOR=nano
 export VISUAL=nano
 alias pico='edit'
 alias spico='sedit'
-# alias nano='edit'
-# alias snano='sedit'
+alias nano='edit'
+alias snano='sedit'
 alias cat='batcat'
 
 # To have colors for ls and all grep commands such as grep, egrep and zgrep
@@ -196,26 +196,28 @@ edit ()
 {
 	if [ "$(type -t jpico)" = "file" ]; then
 		# Use JOE text editor http://joe-editor.sourceforge.net/
-		jpico -nonotice -linums -nobackups "$@"
+		#jpico -nonotice -linums -nobackups "$@"
+		nano -c "$@"
 	elif [ "$(type -t nano)" = "file" ]; then
 		nano -c "$@"
 	elif [ "$(type -t pico)" = "file" ]; then
-		pico "$@"
+		nano "$@"
 	else
-		nvim "$@"
+		nano "$@"
 	fi
 }
 sedit ()
 {
 	if [ "$(type -t jpico)" = "file" ]; then
 		# Use JOE text editor http://joe-editor.sourceforge.net/
-		sudo jpico -nonotice -linums -nobackups "$@"
+		# sudo jpico -nonotice -linums -nobackups "$@"
+		sudo nano -c "$@"
 	elif [ "$(type -t nano)" = "file" ]; then
 		sudo nano -c "$@"
 	elif [ "$(type -t pico)" = "file" ]; then
-		sudo pico "$@"
+		sudo nano "$@"
 	else
-		sudo nvim "$@"
+		sudo nano "$@"
 	fi
 }
 
@@ -462,7 +464,7 @@ function whatsmyip ()
 	
 	### Old commands
 	# Internal IP Lookup
-	#echo -n "Internal IP: " ; /sbin/ifconfig eth0 | grep "inet addr" | awk -F: '{print $2}' | awk '{print $1}'
+	echo -n "Internal IP: " ; /sbin/ifconfig eth0 | grep "inet addr" | awk -F: '{print $2}' | awk '{print $1}'
 #
 #	# External IP Lookup
 	#echo -n "External IP: " ; wget http://smart-ip.net/myip -O - -q
@@ -593,5 +595,3 @@ fi
 source "$HOME/mybash/gitcommands"
 
 alias meteo='curl fr.wttr.in'
-
-eval "$(starship init bash)"
