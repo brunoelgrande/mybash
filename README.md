@@ -13,3 +13,12 @@ sudo bash setup.sh
 
 - Commande `sudo apt update` devrait passer par nala avec le scipt `apt()` et `sudo()`
  
+## Symbolic links 
+
+Installer dans `setup.sh`
+
+ou manuellement :
+
+    sudo ln -svf /home/bruno/mybash/.bashrc ~/.bashrc
+    sudo ln -svf /home/bruno/mybash/.gitcommands ~/.config/.gitcommands
+    sudo ln -svf /home/bruno/mybash/.neofetch.conf ~/.config/neofetch/config.conf
