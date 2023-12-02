@@ -118,7 +118,7 @@ linkConfig() {
     ## Make symbolic link.
     mkdir -p ${USER_HOME}/.config
     ln -svf ${GITPATH}/.bashrc ${USER_HOME}/.bashrc
-    ln -svf ${GITPATH}/.gitcommands ${USER_HOME}/.gitcommands
+    ln -svf ${GITPATH}/.gitcommands ${USER_HOME}/.config/.gitcommands
     ln -svf ${GITPATH}/starship.toml ${USER_HOME}/.config/starship.toml
 }
 
