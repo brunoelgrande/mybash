@@ -472,6 +472,7 @@ function whatsmyip ()
 	# Internal IP Lookup.
 	if [ -e /sbin/ip ];
 	then
+		echo -n "Internal IP: " ; /sbin/ip addr show eth0 | grep "inet " | awk -F: '{print $1}' | awk '{print $2}'
 		echo -n "Internal IP: " ; /sbin/ip addr show ens18 | grep "inet " | awk -F: '{print $1}' | awk '{print $2}'
 		echo -n "Internal IP: " ; /sbin/ip addr show wlan0 | grep "inet " | awk -F: '{print $1}' | awk '{print $2}'
 	else
