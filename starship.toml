@@ -9,6 +9,7 @@ $git_branch\
 $git_status\
 [](fg:#4C566A bg:#86BBD8)\
 $c\
+$conda\
 $elixir\
 $elm\
 $golang\
@@ -38,7 +39,7 @@ format = '[$user ]($style)'
 [directory]
 style = "bg:#434C5E"
 format = "[ $path ]($style)"
-truncation_length = 3
+truncation_length = 4
 truncation_symbol = "…/"
 
 # Here is how you can shorten some long paths by text replacement
