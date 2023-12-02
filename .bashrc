@@ -420,7 +420,7 @@ install_bashrc_support ()
 		sudo zypper install tree
 		sudo zypper install joe
 	elif [ $dtype == "debian" ]; then
-		sudo apt-get install multitail tree joe micro
+		sudo apt-get install multitail tree joe micro neofetch
 	else
 		echo "Unknown distribution"
 	fi
