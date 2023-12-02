@@ -603,7 +603,7 @@ unset __conda_setup
 ################################################################################ 
 # Autres Bruno
 ################################################################################ 
-source "$HOME/mybash/gitcommands"
+source "$HOME/.gitcommands"
 
 alias meteo='curl fr.wttr.in'
 alias subl='sublime'
