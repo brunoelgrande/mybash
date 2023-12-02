@@ -61,6 +61,7 @@ style = "bg:#86BBD8"
 format = '[ $symbol ($version) ]($style)'
 
 [conda]
+style = "bg:#86BBD8"
 format = '[$symbol$environment]($style)'
 
 [docker_context]
