@@ -618,3 +618,4 @@ unset __conda_setup
 source "$HOME/mybash/gitcommands"
 
 alias meteo='curl fr.wttr.in'
+alias subl='sublime'
