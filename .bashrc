@@ -53,7 +53,7 @@ export EDITOR=nano
 export VISUAL=nano
 alias pico='edit'
 alias spico='sedit'
-# alias nano='edit'
+alias nano='edit'
 alias snano='sedit'
 alias cat='batcat'
 
@@ -197,13 +197,13 @@ edit ()
 	if [ "$(type -t jpico)" = "file" ]; then
 		# Use JOE text editor http://joe-editor.sourceforge.net/
 		# sudo jpico -nonotice -linums -nobackups "$@"
-		nano -c "$@"
+		micro -c "$@"
 	elif [ "$(type -t nano)" = "file" ]; then
-		nano -c "$@"
+		micro -c "$@"
 	elif [ "$(type -t pico)" = "file" ]; then
-		nano "$@"
+		micro "$@"
 	else
-		nano "$@"
+		micro "$@"
 	fi
 }
 sedit ()
@@ -211,13 +211,13 @@ sedit ()
 	if [ "$(type -t jpico)" = "file" ]; then
 		# Use JOE text editor http://joe-editor.sourceforge.net/
 		# sudo jpico -nonotice -linums -nobackups "$@"
-		sudo nano -c "$@"
+		micro nano -c "$@"
 	elif [ "$(type -t nano)" = "file" ]; then
-		sudo nano -c "$@"
+		micro nano -c "$@"
 	elif [ "$(type -t pico)" = "file" ]; then
-		sudo nano "$@"
+		micro nano "$@"
 	else
-		sudo nano "$@"
+		micro nano "$@"
 	fi
 }
 
