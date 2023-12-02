@@ -191,6 +191,20 @@ alias logs="sudo find /var/log -type f -exec file {} \; | grep 'text' | cut -d' 
 # SPECIAL FUNCTIONS
 #######################################################
 
+# Use nala for package manager (instead of apt)
+apt() {
+  command nala "$@"
+}
+
+sudo() {
+  if [ "$1" = "apt" ]; then
+    shift
+    command sudo nala "$@"
+  else
+    command sudo "$@"
+  fi
+}
+
 # Use the best version of pico installed
 edit ()
 {
@@ -323,14 +337,14 @@ up ()
 }
 
 #Automatically do an ls after each cd
-# cd ()
-# {
-# 	if [ -n "$1" ]; then
-# 		builtin cd "$@" && ls
-# 	else
-# 		builtin cd ~ && ls
-# 	fi
-# }
+cd ()
+{
+	if [ -n "$1" ]; then
+		builtin cd "$@" && ls
+	else
+		builtin cd ~ && ls
+	fi
+}
 
 # Returns the last 2 fields of the working directory
 pwdtail ()
@@ -361,19 +375,6 @@ distribution ()
 		source /lib/lsb/init-functions
 		[ zz`type -t log_begin_msg 2>/dev/null` == "zzfunction" ] && dtype="debian"
 	
-	# Then test against Gentoo
-	elif [ -r /etc/init.d/functions.sh ]; then
-		source /etc/init.d/functions.sh
-		[ zz`type -t ebegin 2>/dev/null` == "zzfunction" ] && dtype="gentoo"
-	
-	# For Mandriva we currently just test if /etc/mandriva-release exists
-	# and isn't empty (TODO: Find a better way :)
-	elif [ -s /etc/mandriva-release ]; then
-		dtype="mandriva"
-
-	# For Slackware we currently just test if /etc/slackware-version exists
-	elif [ -s /etc/slackware-version ]; then
-		dtype="slackware"
 
 	fi
 	echo $dtype
@@ -396,12 +397,6 @@ ver ()
 	elif [ $dtype == "debian" ]; then
 		lsb_release -a
 		# sudo cat /etc/issue && sudo cat /etc/issue.net && sudo cat /etc/lsb_release && sudo cat /etc/os-release # Linux Mint option 2
-	elif [ $dtype == "gentoo" ]; then
-		cat /etc/gentoo-release
-	elif [ $dtype == "mandriva" ]; then
-		cat /etc/mandriva-release
-	elif [ $dtype == "slackware" ]; then
-		cat /etc/slackware-version
 	else
 		if [ -s /etc/issue ]; then
 			cat /etc/issue
@@ -425,17 +420,7 @@ install_bashrc_support ()
 		sudo zypper install tree
 		sudo zypper install joe
 	elif [ $dtype == "debian" ]; then
-		sudo apt-get install multitail tree joe
-	elif [ $dtype == "gentoo" ]; then
-		sudo emerge multitail
-		sudo emerge tree
-		sudo emerge joe
-	elif [ $dtype == "mandriva" ]; then
-		sudo urpmi multitail
-		sudo urpmi tree
-		sudo urpmi joe
-	elif [ $dtype == "slackware" ]; then
-		echo "No install support for Slackware"
+		sudo apt-get install multitail tree joe micro
 	else
 		echo "Unknown distribution"
 	fi
@@ -568,6 +553,7 @@ trim()
 }
 
 alias lookingglass="~/looking-glass-B5.0.1/client/build/looking-glass-client -F"
+
 #######################################################
 # Set the ultimate amazing command prompt
 #######################################################
@@ -597,6 +583,7 @@ fi
 ## $ ./conda init bash
 #
 ################################################################################ 
+
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/home/bruno/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
