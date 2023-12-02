@@ -37,6 +37,7 @@ checkEnv() {
     apt upgrade -y
     ### Install nala and use it
     apt install nala -y
+    # apt install nala-legacy -y   ## pour plus vieux système
     bash ${GITPATH}/usenala
 
     ## Check Package Handeler
