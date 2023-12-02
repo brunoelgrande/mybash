@@ -74,7 +74,7 @@ checkEnv() {
 
 installDepend() {
     ## Check for dependencies.
-    DEPENDENCIES='autojump bash bash-completion icdiff tar trash-cli tree bat'
+    DEPENDENCIES='autojump bash bash-completion icdiff micro tar trash-cli tree bat'
     echo -e "${YELLOW}Installing dependencies...${RC}"
     if [[ $PACKAGER == "pacman" ]]; then
         if ! command_exists yay; then
