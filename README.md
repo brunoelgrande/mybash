@@ -22,3 +22,9 @@ ou manuellement :
     sudo ln -svf /home/bruno/mybash/.bashrc ~/.bashrc
     sudo ln -svf /home/bruno/mybash/.gitcommands ~/.config/.gitcommands
     sudo ln -svf /home/bruno/mybash/.neofetch.conf ~/.config/neofetch/config.conf
+
+## Autocompletion
+
+Pour activer autocomplétion dans bash :
+
+    `nala --install-completion bash`
