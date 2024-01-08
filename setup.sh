@@ -73,7 +73,7 @@ checkEnv() {
 
 installDepend() {
     ## Check for dependencies.
-    DEPENDENCIES='autojump bash bash-completion icdiff micro tar trash-cli tree bat plocate'
+    DEPENDENCIES='autojump bash bash-completion icdiff micro tar trash-cli tree bat plocate fonts-font-awesome'
     echo -e "${YELLOW}Installing dependencies...${RC}"
     if [[ $PACKAGER == "pacman" ]]; then
         if ! command_exists yay; then
