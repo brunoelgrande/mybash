@@ -40,7 +40,7 @@ checkEnv() {
     # apt install nala-legacy -y   ## pour plus vieux système
 
     ## Check Package Handeler
-    PACKAGEMANAGER='nala apt yum dnf pacman zypper'
+    PACKAGEMANAGER='apt nala yum dnf pacman zypper'
     for pgm in ${PACKAGEMANAGER}; do
         if command_exists ${pgm}; then
             PACKAGER=${pgm}
@@ -73,7 +73,7 @@ checkEnv() {
 
 installDepend() {
     ## Check for dependencies.
-    DEPENDENCIES='autojump bash bash-completion icdiff micro tar trash-cli tree bat'
+    DEPENDENCIES='autojump bash bash-completion icdiff micro tar trash-cli tree bat plocate'
     echo -e "${YELLOW}Installing dependencies...${RC}"
     if [[ $PACKAGER == "pacman" ]]; then
         if ! command_exists yay; then
