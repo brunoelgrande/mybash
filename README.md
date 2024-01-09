@@ -22,6 +22,12 @@ ou manuellement :
     sudo ln -svf /home/bruno/mybash/.bashrc ~/.bashrc
     sudo ln -svf /home/bruno/mybash/.gitcommands ~/.config/.gitcommands
     sudo ln -svf /home/bruno/mybash/.neofetch.conf ~/.config/neofetch/config.conf
+    sudo ln -svf /home/bruno/mybash/.kitty.conf ~/.config/kitty/kitty.conf
+
+    ou
+
+    sudo ln -svf /home/bruno/Github/mybash/.kitty.conf ~/.config/kitty/kitty.conf
+
 
 ## Autocompletion
 
