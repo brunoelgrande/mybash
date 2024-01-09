@@ -73,7 +73,7 @@ checkEnv() {
 
 installDepend() {
     ## Check for dependencies.
-    DEPENDENCIES='autojump bash bash-completion icdiff micro tar trash-cli tree bat plocate fonts-font-awesome exa'
+    DEPENDENCIES='autojump bash bash-completion icdiff micro tar trash-cli tree bat plocate fonts-font-awesome exa kitty'
     echo -e "${YELLOW}Installing dependencies...${RC}"
     if [[ $PACKAGER == "pacman" ]]; then
         if ! command_exists yay; then
@@ -121,6 +121,7 @@ linkConfig() {
     ln -svf ${GITPATH}/.gitcommands ${USER_HOME}/.config/.gitcommands
     ln -svf ${GITPATH}/.neofetch.conf ${USER_HOME}/.config/neofetch/config.conf
     ln -svf ${GITPATH}/starship.toml ${USER_HOME}/.config/starship.toml
+    ln -svf ${GITPATH}/.kitty.conf ${USER_HOME}/.config/kitty/kitty.conf
 }
 
 checkEnv
