@@ -40,7 +40,7 @@ format = "[$user]($style)"
 [hostname]
 #format = "[$hostname]($style)"
 ssh_only = true
-format = '[@$hostname](bg:#3B4252)[$ssh_symbol](bg:#3B4252)'
+format = '[@$hostname $ssh_symbol](bg:#3B4252)'
 trim_at = '.companyname.com'
 disabled = false
 
