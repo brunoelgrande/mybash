@@ -29,6 +29,7 @@ checkEnv() {
     fi
 
     ## Add nala dependency
+    apt install wget -y
     echo "deb [arch=amd64,arm64,armhf] http://deb.volian.org/volian/ scar main" | sudo tee /etc/apt/sources.list.d/volian-archive-scar-unstable.list
     wget -qO - https://deb.volian.org/volian/scar.key | sudo tee /etc/apt/trusted.gpg.d/volian-archive-scar-unstable.gpg > /dev/null
 
@@ -122,6 +123,7 @@ linkConfig() {
     ln -svf ${GITPATH}/.neofetch.conf ${USER_HOME}/.config/neofetch/config.conf
     ln -svf ${GITPATH}/starship.toml ${USER_HOME}/.config/starship.toml
     ln -svf ${GITPATH}/.kitty.conf ${USER_HOME}/.config/kitty/kitty.conf
+	ln -svf ${GITPATH}/colors.conf ${USER_HOME}/.config/colors.conf
 }
 
 checkEnv

@@ -122,9 +122,9 @@ alias bd='cd "$OLDPWD"'
 alias rmd='/bin/rm  --recursive --force --verbose '
 
 # Alias's for multiple directory listing commands
-alias l='exa -al --header --icons --group-directories-first'
+alias ll='exa -al --header --icons --group-directories-first'
+alias ls='exa -a  --icons --group-directories-first'
 alias la='ls -Alh' # show hidden files
-alias ls='ls -aFh --color=always' # add colors and file type extensions
 alias lx='ls -lXBh' # sort by extension
 alias lk='ls -lSrh' # sort by size
 alias lc='ls -lcrh' # sort by change time
@@ -133,10 +133,11 @@ alias lr='ls -lRh' # recursive ls
 alias lt='ls -ltrh' # sort by date
 alias lm='ls -alh |more' # pipe through 'more'
 alias lw='ls -xAh' # wide listing format
-alias ll='ls -Fls' # long listing format
 alias labc='ls -lap' #alphabetical sort
 alias lf="ls -l | egrep -v '^d'" # files only
 alias ldir="ls -l | egrep '^d'" # directories only
+# alias ls='ls -aFh --color=always' # add colors and file type extensions
+# alias ll='ls -Fls' # long listing format
 
 # alias chmod commands
 alias mx='chmod a+x'
