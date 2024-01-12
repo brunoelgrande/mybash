@@ -2,6 +2,7 @@ format = """
 [](#3B4252)\
 $python\
 $username\
+$hostname\
 [](bg:#434C5E fg:#3B4252)\
 $directory\
 [](fg:#434C5E bg:#4C566A)\
@@ -34,7 +35,14 @@ command_timeout = 5000
 show_always = true
 style_user = "bg:#3B4252"
 style_root = "bg:#3B4252"
-format = '[$user ]($style)'
+format = "[$user]($style)"
+
+[hostname]
+#format = "[$hostname]($style)"
+ssh_only = true
+format = '[@$hostname](bg:#3B4252)[$ssh_symbol](bg:#3B4252)'
+trim_at = '.companyname.com'
+disabled = false
 
 [directory]
 style = "bg:#434C5E"
@@ -47,6 +55,7 @@ truncation_symbol = "…/"
 [directory.substitutions]
 "Documents" = "🗁"
 "Téléchargements" = " "
+"Downloads" = " "
 "Musique" = " "
 "Images" = " "
 # Keep in mind that the order matters. For example:
