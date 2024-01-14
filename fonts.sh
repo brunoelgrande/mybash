@@ -1,5 +1,5 @@
 #!/bin/bash
-sudo apt install unzip -y
+sudo apt install wget unzip -y
 
 mkdir -p ~/.local/share/fonts
 
@@ -9,7 +9,6 @@ fonts=(
 "FiraCode" 
 "Go-Mono" 
 "Hack"  
-"Iosevka" 
 "JetBrainsMono" 
 "Mononoki" 
 "Meslo"
