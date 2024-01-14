@@ -80,7 +80,7 @@ read_only = " "
 [time]
 disabled = false
 style = "bg:#4C566A"
-format = '[$time ]($style)'
+format = '[ $time ]($style)'
 #time_format = "%R" # Hour:Minute Format
 
 [fill]
