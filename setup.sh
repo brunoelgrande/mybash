@@ -40,6 +40,12 @@ checkEnv() {
     apt install nala -y
     # apt install nala-legacy -y   ## pour plus vieux système
 
+    ### Install Neovim from last version
+    wget https://github.com/neovim/neovim/releases/latest/download/nvim.appimage &&
+    chmod +x ./nvim.appimage &&
+    sudo mv nvim.appimage /usr/local/bin/nvim
+
+
     ## Check Package Handeler
     PACKAGEMANAGER='apt nala yum dnf pacman zypper'
     for pgm in ${PACKAGEMANAGER}; do
